@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <form method = "POST">
+    <form method="POST">
         <div class="row">
             <h3>SIGN DETAILS</h3>
         </div>
@@ -13,21 +13,42 @@
             </div>
         </div>
 
+
         <div class="row">
-            <label class="mb-2" name="points" id="points">Points</label>
+            <label class="mb-2"> Points</label>
         </div>
         <div class="col-md-8">
             <div class="form-group mb-3">
-                <input type="text" name="firstname" id="firstname" class="form-control" value="" required=""
-                       aria-labelledby="firstname-label" aria-required="true">
+                <input type="text" name="points" id="points" class="form-control">
             </div>
         </div>
 
+
         <div class="row">
-            <label class="mb-2" name="wine-label" id="wine-label">Wine Label</label>
-             enctype = "multipart/form-data">
-             <input type = "file" name = "file" />
-             <input type = "submit"/>
+            <label class="mb-2"> Wine Label</label>
         </div>
+        <div class="col-md-8">
+            <div class="form-group mb-3">
+                <input type="file" name="wine-label" id="wine-label" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <label class="mb-2"> Review Site</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group mb-3">
+                <input type="file" name="review-site" id="review-site" class="form-control">
+            </div>
+        </div>
+
+        <div class="py-3">
+            <input type="submit"
+                   class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 mt-3"
+                   value="Submit">
+        </div>
+
+
     </form>
 </div>
