@@ -1,54 +1,58 @@
-<div class="container-fluid">
-    <form method="POST">
-        <div class="row">
-            <h3>SIGN DETAILS</h3>
-        </div>
+   <link rel="stylesheet" href="./dist/style.css">
 
-        <div class="row">
-            <label class="mb-2"> Description</label>
-        </div>
-        <div class="col-md-8">
-            <div class="form-group mb-3">
-                <input type="text" name="description" id="description" class="form-control">
+    <div class="container px-4">
+        <h3>SIGN CREATION FORM</h3>
+        <form method="POST">
+            <div class="row">
+                <h3>SIGN DETAILS</h3>
             </div>
-        </div>
 
-
-        <div class="row">
-            <label class="mb-2"> Points</label>
-        </div>
-        <div class="col-md-8">
-            <div class="form-group mb-3">
-                <input type="text" name="points" id="points" class="form-control">
+            <div class="row">
+                <label class="mb-2"> Description</label>
             </div>
-        </div>
-
-
-        <div class="row">
-            <label class="mb-2"> Wine Label</label>
-        </div>
-        <div class="col-md-8">
-            <div class="form-group mb-3">
-                <input type="file" name="wine-label" id="wine-label" class="form-control">
+            <div class="col-md-8">
+                <div class="form-group mb-3">
+                    <textarea id="description" name="description" rows="4" cols="50" >
+                    </textarea>
+                </div>
             </div>
-        </div>
 
 
-        <div class="row">
-            <label class="mb-2"> Review Site</label>
-        </div>
-        <div class="col-md-8">
-            <div class="form-group mb-3">
-                <input type="file" name="review-site" id="review-site" class="form-control">
+            <div class="row">
+                <label class="mb-2"> Points</label>
             </div>
-        </div>
-
-        <div class="py-3">
-            <input type="submit"
-                   class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 mt-3"
-                   value="Submit">
-        </div>
+            <div class="col-md-8">
+                <div class="form-group mb-3">
+                    <input type="text" name="points" id="points" class="form-control">
+                </div>
+            </div>
 
 
-    </form>
+            <div class="row">
+                <label class="mb-2"> Wine Label</label>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group mb-3">
+                    <input type="file" name="wine-label" id="wine-label" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label class="mb-2"> Review Site</label>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group mb-3">
+                    <input type="file" name="review-site" id="review-site" class="form-control">
+                </div>
+            </div>
+
+            <div class="py-3">
+                <input type="submit"
+                       class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 mt-3"
+                       value="Submit">
+            </div>
+
+
+        </form>
 </div>
