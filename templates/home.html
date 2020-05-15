@@ -1,58 +1,71 @@
-   <link rel="stylesheet" href="./dist/style.css">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="container px-4">
-        <h3>SIGN CREATION FORM</h3>
-        <form method="POST">
-            <div class="row">
-                <h3>SIGN DETAILS</h3>
-            </div>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
 
-            <div class="row">
-                <label class="mb-2"> Description</label>
-            </div>
-            <div class="col-md-8">
-                <div class="form-group mb-3">
-                    <textarea id="description" name="description" rows="4" cols="50" >
-                    </textarea>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <label class="mb-2"> Points</label>
-            </div>
-            <div class="col-md-8">
-                <div class="form-group mb-3">
-                    <input type="text" name="points" id="points" class="form-control">
-                </div>
-            </div>
-
-
-            <div class="row">
-                <label class="mb-2"> Wine Label</label>
-            </div>
-            <div class="col-md-8">
-                <div class="form-group mb-3">
-                    <input type="file" name="wine-label" id="wine-label" class="form-control">
-                </div>
-            </div>
-
-
-            <div class="row">
-                <label class="mb-2"> Review Site</label>
-            </div>
-            <div class="col-md-8">
-                <div class="form-group mb-3">
-                    <input type="file" name="review-site" id="review-site" class="form-control">
-                </div>
-            </div>
-
-            <div class="py-3">
-                <input type="submit"
-                       class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 mt-3"
-                       value="Submit">
-            </div>
-
-
-        </form>
+<div class="main-header px-8">
+    <img class="h-24" src="../static/Graceway_supermarkets_logo.png">
 </div>
+
+
+<div class="container px-8 mt-8">
+    <h3 class="mb-2 text-2xl">SIGN CREATION FORM</h3>
+    <form method="POST" class="border-2 bg-gray-100">
+        <div class="row">
+            <h3 class="mt-4 ml-6 text-xl">SIGN DETAILS</h3>
+        </div>
+
+
+        <div class="row mt-2">
+            <label class="ml-6"> Wine Label</label>
+        </div>
+        <div>
+            <div class="form-group mb-3">
+                <input type="file" name="wine-label" id="wine-label" class="form-control ml-6">
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <label class="mb-2 ml-6"> Review Site</label>
+        </div>
+        <div>
+            <div class="form-group mb-3">
+                <input type="file" name="review-site" id="review-site" class="form-control ml-6">
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <label class="ml-6"> Points</label>
+        </div>
+        <div>
+            <div>
+                <input type="text" name="points" id="points" class="form-control ml-6 border-2" >
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <label class="ml-6">Description</label>
+        </div>
+        <div>
+            <div>
+                    <textarea class="ml-6 border-2" id="description" name="description" rows="4" cols="50">
+                    </textarea>
+            </div>
+        </div>
+
+
+        <div>
+            <input type="submit"
+                   class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 ml-6 mb-4 mt-2"
+                   value="Submit">
+        </div>
+
+
+    </form>
+</div>
+</html>
