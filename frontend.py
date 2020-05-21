@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = './uploads'
@@ -9,46 +10,44 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
+# def allowed_file(filename):
+#     return '.' in filename and \
+#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=["GET","POST"])
 def home():
     if request.method == 'POST':
-        print(request.form)
-        form_description = request.form["description"]
-        print(form_description)
-        form_points = request.form["points"]
-        print(form_points)
-        wine_label = request.files["wine-label"].lower()
+        wine_label = request.files["wine-label"]
         print(wine_label)
         print(type(wine_label))
-        review_site = request.files["review-site"].lower()
-        print(review_site)
+        wine_label_secure = secure_filename(wine_label.filename)
+        print(type(wine_label_secure))
+        # wine_label_secure_1 = secure_filename(wine_label)
+        # print(type(wine_label_secure_1))
+        wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_secure))
 
-        # check if the post request has the file part
-        # if 'file' not in request.files:
-        #     flash('No file part')
-        #     return redirect(request.url)
-        # file = request.files['file']
-        # # if user does not select file, browser also
-        # # submit an empty part without filename
-        # if file.filename == '':
-        #     flash('No selected file')
-        #     return redirect(request.url)
-        # if file and allowed_file(file.filename):
-        #     filename = secure_filename(file.filename)
-        #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        #     return redirect(url_for('uploaded_file',
-        #                             filename=filename))
+        # review_site = request.files["review-site"]
+        # review_site_secure = secure_filename(review_site.filename)
+        # review_site_secure.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_secure))
+
+        description = request.form['description']
+        points = request.form['points']
+
+        return redirect(url_for('upload_file',
+                                wine_label=wine_label_secure
+                                ))
 
 
-        return redirect(url_for('view_sign', description=form_description, points=form_points,
-                                wine_label=wine_label, review_site=review_site))
+        # return redirect(url_for('view_sign', description=form_description, points=points,
+        #                         wine_label=wine_label, review_site=review_site))
 
     return render_template('home.html')
+
+@app.route('/uploads/<wine_label>')
+def upload_file(wine_label):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               wine_label)
+
 
 
 @app.route('/view-sign/<description>/<points>/<wine_label>/<review_site>', methods=["GET","POST"])
