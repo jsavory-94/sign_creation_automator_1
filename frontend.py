@@ -22,17 +22,14 @@ def home():
             wine_label = request.files['wine-label']
             review_site = request.files['review-site']
 
-            if wine_label and review_site:
-                wine_label_filename = secure_filename(wine_label.filename)
-                wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
+            wine_label_filename = secure_filename(wine_label.filename)
+            wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
 
-                review_site_filename = secure_filename(review_site.filename)
-                review_site.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_filename))
+            review_site_filename = secure_filename(review_site.filename)
+            review_site.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_filename))
 
             return redirect(url_for('upload_file', review_site=review_site_filename, wine_label=wine_label_filename))
-
-    else:
-        flash('No file part')
+        #flash('No file part')
 
         # return redirect(url_for('view_sign', description=form_description, points=points,
         #                         wine_label=wine_label, review_site=review_site))
