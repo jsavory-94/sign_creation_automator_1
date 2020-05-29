@@ -22,6 +22,9 @@ def home():
             wine_label = request.files['wine-label']
             review_site = request.files['review-site']
 
+            print(f'wine_label captured: {wine_label}')
+            print(f'wine_label captured: {review_site}')
+
             wine_label_filename = secure_filename(wine_label.filename)
             wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
 
