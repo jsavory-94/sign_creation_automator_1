@@ -21,23 +21,37 @@ def home():
     if request.method == 'POST':
             wine_label = request.files['wine-label']
             review_site = request.files['review-site']
+            points = request.form['points']
+            description = request.form['description']
 
-            print(f'wine_label captured: {wine_label}')
-            print(f'wine_label captured: {review_site}')
+            print(f'wine_label : {wine_label}')
+            print(f'review site : {review_site}')
+            print(f'points : {points}')
+            print(f'description : {description}')
 
             wine_label_filename = secure_filename(wine_label.filename)
             wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
+            # wine_label.save(os.path.join(r" C:\Users\Setup\Desktop\PycharmProjects - Mar30\sign_creation_automator\uploads", wine_label_filename))
 
             review_site_filename = secure_filename(review_site.filename)
             review_site.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_filename))
 
-            return redirect(url_for('upload_file', review_site=review_site_filename, wine_label=wine_label_filename))
-        #flash('No file part')
+            return render_template(
+                'results.html',
+                points=points,
+                description=description,
+                wine_label=wine_label_filename,
+                review_site=review_site_filename
+            )
 
-        # return redirect(url_for('view_sign', description=form_description, points=points,
-        #                         wine_label=wine_label, review_site=review_site))
 
     return render_template('home.html')
+
+
+@app.route('/uploaded_files/<filename>')
+def serve_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 
 @app.route('/uploads/<wine_label>/<review_site>')
 def upload_file(wine_label, review_site):
@@ -48,16 +62,3 @@ def upload_file(wine_label, review_site):
     review_site_filename = review_site
 
     return render_template('sign.html', wine_label=wine_label_filename, review_site_file=review_site_filename)
-
-
-
-@app.route('/view-sign/<description>/<points>/<wine_label>/<review_site>', methods=["GET","POST"])
-def view_sign(description, points,wine_label,review_site):
-    description_var = description
-    points_var = points
-    wine_label_var = wine_label
-    review_site_var = review_site
-
-
-    return render_template('ticket.html', description=description_var, wine_label=wine_label_var,
-                           review_site=review_site_var, points=points_var)

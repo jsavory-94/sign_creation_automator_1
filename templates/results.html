@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <div class="upper-half">
+        <img class="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" alt="wine label image"/>
+        <img class="review-site" src="{{ url_for('serve_file', filename=review_site) }}" alt="review label image"/>
+        <p>{{ points }}</p>
+
+    </div>
+
+    <div class="lower-half">
+    </div>
+
+<p>{{ description }}</p>
+
+
+
+
+</body>
