@@ -41,7 +41,8 @@ def home():
                 points=points,
                 description=description,
                 wine_label=wine_label_filename,
-                review_site=review_site_filename
+                review_site=review_site_filename,
+                star='star.png'
             )
 
 

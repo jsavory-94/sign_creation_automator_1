@@ -9,10 +9,57 @@ html body {
     margin: 0;
     width: 6cm;}
 
-.wine-label {
-    height:4cm;
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1cm);
+    grid-template-rows: repeat(8, 1cm);
 }
 
-.review-site{
-    height: 1cm
+.wine-label {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    column-span: 4;
+    height: 100%;
+    width: 100%
 }
+
+.review-site {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 100%;
+    width: 100%
+}
+
+.star {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    height: 100%;
+    width: 100%
+}
+
+
+.points {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%
+}
+
+.description {
+    word-breaK:break-all;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 9;
+    height: 100%;
+    width: 100%
+}
+
