@@ -6,23 +6,15 @@
 
 
 <body>
-    <div class="gallery">
-        <img class="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" alt="wine label image"/>
-        <img class="review-site" src="{{ url_for('serve_file', filename=review_site) }}"
+    <div class="label">
+        <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" alt="wine label image"/>
+        <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"
                  alt="review label image"/>
-        <img class="star" src="{{ url_for('serve_file', filename=star) }}"
+        <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"
                  alt="review label image"/>
-        <p style="color:white" class="points">{{ points }} pt</p>
-        <p class="description">{{ description }}</p>
+        <p style="color:white" id="points">{{ points }} pt</p>
+        <p id="description">{{ description }}</p>
 
     </div>
-
-    <div class="top-right">
-    </div>
-    <div class="lower-half">
-    </div>
-
-
-
 </body>
 </html>

@@ -1,65 +1,68 @@
-html body {
-    background: #fff;
-    box-sizing: border-box;
-    color: #2A3239;
-    display: flex;
-    flex-wrap: wrap;
-    height: 8cm;
-    justify-content: space-between;
-    margin: 0;
-    width: 6cm;}
+body{
+    background: lightgray;
+}
 
-.gallery {
+.label {
+    background: white;
     display: grid;
-    grid-template-columns: repeat(6, 1cm);
-    grid-template-rows: repeat(8, 1cm);
+    grid-template-columns: repeat(24, 0.25cm);
+    grid-template-rows: repeat(32, 0.25cm);
 }
 
-.wine-label {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 5;
-    column-span: 4;
-    height: 100%;
-    width: 100%
+.image{
+    
 }
 
-.review-site {
-    grid-column-start: 4;
-    grid-column-end: 7;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    height: 100%;
-    width: 100%
-}
-
-.star {
-    grid-column-start: 4;
-    grid-column-end: 7;
-    grid-row-start: 2;
-    grid-row-end: 5;
-    height: 100%;
-    width: 100%
-}
-
-
-.points {
-    grid-column-start: 5;
-    grid-column-end: 6;
+#wine-label {
+    grid-column-start: 2;
+    grid-column-end: 11;
     grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-end: 15;
     height: 100%;
     width: 100%
 }
 
-.description {
-    word-breaK:break-all;
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 5;
-    grid-row-end: 9;
+#review-site {
+    grid-column-start: 13;
+    grid-column-end: 24;
+    grid-row-start: 2;
+    grid-row-end: 6;
     height: 100%;
     width: 100%
+}
+
+#star {
+    grid-column-start: 13;
+    grid-column-end: 23;
+    grid-row-start: 7;
+    grid-row-end: 15;
+    height: 100%;
+    width: 100%
+}
+
+
+#points {
+    font-size: 8pt;
+    margin: 0 0 0 0;
+    grid-column-start: 17;
+    grid-column-end: 20;
+    grid-row-start: 11;
+    grid-row-end: 13;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#description {
+    margin: 0 0 0 0;
+    word-breaK:break-all;
+    grid-column-start: 2;
+    grid-column-end: 24;
+    grid-row-start: 17;
+    grid-row-end: 32;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    ;
 }
 
