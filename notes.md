@@ -14,3 +14,8 @@ Combine:
 - Flask-Weasy, provide data from form into template and render, [-]
   or create a 'static' html file to use for rendering. [-]
  
+
+
+# Thursday
+
+- 
