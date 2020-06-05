@@ -67,22 +67,36 @@ form {
     grid-column-start: 13;
     grid-column-end: 23;
     grid-row-start: 7;
-    grid-row-end: 15;
+    grid-row-end: 16;
     height: 100%;
     width: 100%
 }
 
 
-#points {
-    font-size: 11pt;
+#points-number {
+    font-family:"Roboto Black";
+    font-size: 20pt;
     margin: 0 0 0 0;
-    grid-column-start: 16;
+    grid-column-start: 15;
     grid-column-end: 21;
     grid-row-start: 10;
-    grid-row-end: 13;
+    grid-row-end: 14;
     height: 100%;
     width: 100%;
     overflow: hidden;
+    transform: scale(0.75,1)
+}
+
+#points-pt {
+    font-family:"Roboto Medium";
+    font-size: 10pt;
+    margin: 0 0 0 0;
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row-start: 11;
+    grid-row-end: 15;
+    overflow: hidden;
+    transform: scale(0.75,1)
 }
 
 #description {

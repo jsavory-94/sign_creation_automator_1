@@ -39,6 +39,7 @@ def home():
             return render_template(
                 'results.html',
                 points=points,
+                points_length = len(points),
                 description=description,
                 wine_label=wine_label_filename,
                 review_site=review_site_filename,
