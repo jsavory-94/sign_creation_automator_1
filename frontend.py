@@ -42,11 +42,11 @@ def home():
                 description=description,
                 wine_label=wine_label_filename,
                 review_site=review_site_filename,
-                star='thick-star.png'
+                star='thick-star.png',
             )
 
 
-    return render_template('home.html')
+    return render_template('home.html', logo='GS_logo.png')
 
 
 @app.route('/uploaded_files/<filename>')
