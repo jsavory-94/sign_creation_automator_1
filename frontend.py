@@ -36,6 +36,8 @@ def home():
             review_site_filename = secure_filename(review_site.filename)
             review_site.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_filename))
 
+            description_padding = 'Lorem ipsum dolor sit amet, con sit amet' #filler text to prevent partial text cutoff in desription box
+
             return render_template(
                 'results.html',
                 points=points,
@@ -44,6 +46,7 @@ def home():
                 wine_label=wine_label_filename,
                 review_site=review_site_filename,
                 star='thick-star.png',
+                padding = description_padding
             )
 
 
