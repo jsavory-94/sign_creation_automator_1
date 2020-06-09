@@ -174,11 +174,10 @@ form {
     grid-column-start: 2;
     grid-column-end: 24;
     grid-row-start: 17;
-    grid-row-end: 32;
+    grid-row-end: 31;
     height: 100%;
     width: 100%;
     text-overflow: ellipsis;
-    margin-bottom: 0.2cm;
     display: inline-block;
     font-family: "Microsoft Sans Serif"
     white-space: nowrap;
