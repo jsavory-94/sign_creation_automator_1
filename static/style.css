@@ -151,7 +151,7 @@ form {
     grid-row-end: 15;
     overflow: hidden;
     transform: scale(0.75,1);
-    margin-left:0.05 cm
+    margin-left:0.05cm
 }
 
 #points-pt-1-digit {
@@ -168,26 +168,33 @@ form {
 }
 
 
-#description {
+#description-label {
     margin: 0 0 0 0;
-    word-breaK:break-all;
+    word-wrap: break-word;
+    word-break:break-all;
     grid-column-start: 2;
     grid-column-end: 24;
     grid-row-start: 17;
     grid-row-end: 31;
     height: 100%;
-    width: 100%;
-    text-overflow: ellipsis;
-    display: inline-block;
-    font-family: "Microsoft Sans Serif"
-    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: clip;
+    font-family: "Microsoft Sans Serif";
     overflow: hidden;
-}
-
-.padding{
-    color:white;
+    z-index: 1;
 }
 
 .form-control {
     margin-bottom: 10px;
 }
+
+#blank {
+    grid-column-start: 2;
+    grid-column-end: 25;
+    grid-row-start:30;
+    grid-row-end:31;
+    max-height:100%;
+    max-width:100%;
+    object-fit: contain;
+    z-index: 2;
+    }

@@ -6,13 +6,13 @@
 </head>
 
 <div class="topnav">
-  <img id="header-image" src="{{ url_for('serve_file', filename=logo) }}"/>
+  <img id="header-image" src="{{ url_for("static", filename='Graceway_supermarkets_logo.png')}}"/>
 </div>
 
 
 <div class="container">
     <form method="post" enctype="multipart/form-data" border-2 bg-gray-100>
-    <div class="form-">
+    <div class="form">
         <h2 class="mt-4 ml-6 text-xl">Provide Sign Details</h2>
     </div>
 
@@ -50,7 +50,7 @@
         <label class="ml-6"><b>Description</b></label>
     <div>
         <div class="form-control">
-                    <textarea  id="description" name="description" rows="4" cols="50">
+                    <textarea  id="description" name="description">
                     </textarea>
         </div>
 
