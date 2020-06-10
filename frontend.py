@@ -1,6 +1,6 @@
 import os
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
-from flask_weasyprint import HTML, render_pdf
+from flask_weasyprint import HTML, render_pdf, CSS
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = './uploads'
@@ -32,12 +32,10 @@ def home():
 
             wine_label_filename = secure_filename(wine_label.filename)
             wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
-            # wine_label.save(os.path.join(r" C:\Users\Setup\Desktop\PycharmProjects - Mar30\sign_creation_automator\uploads", wine_label_filename))
 
             review_site_filename = secure_filename(review_site.filename)
             review_site.save(os.path.join(app.config['UPLOAD_FOLDER'], review_site_filename))
 
-            description_padding = 'Lorem ipsum dolor sit amet, con sit amet' #filler text to prevent partial text cutoff in desription box
             print(f"wine label filename: {wine_label_filename}")
             print(f"wine label filename: {review_site_filename}")
 
@@ -49,7 +47,6 @@ def home():
                 wine_label=wine_label_filename,
                 review_site=review_site_filename,
                 star='thick-star.png',
-                padding = description_padding,
                 blank='blank.jpg'
             )
 
@@ -72,7 +69,13 @@ def upload_file(wine_label, review_site):
     return render_template('sign.html', wine_label=wine_label_filename, review_site_file=review_site_filename)
 
 
-@app.route('/pdf')
-def render_pdf():
-    html = render_template('results.html')
-    return render_pdf(string=HTML(html))
+# @app.route('/pdf')
+# def render_pdf():
+#     html = render_template('results.html')
+#     return render_pdf(url_for('home', name='blank.jpg'))
+
+@app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<blank>_<description>')
+def render_pdf_no_html_page(wine_label, review_site, star, points, blank, description):
+    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
+                           points=points, blank=blank, description=description)
+    return render_pdf(HTML(string=html))
