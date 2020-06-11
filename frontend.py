@@ -78,4 +78,8 @@ def upload_file(wine_label, review_site):
 def render_pdf_no_html_page(wine_label, review_site, star, points, blank, description):
     html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
                            points=points, blank=blank, description=description)
-    return render_pdf(HTML(string=html))
+    css = url_for('static', filename='style.css')
+    print(css)
+    print(type(css))
+
+    return render_pdf(HTML(string=html), stylesheets=css)
