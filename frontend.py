@@ -69,13 +69,23 @@ def upload_file(wine_label, review_site):
     return render_template('sign.html', wine_label=wine_label_filename, review_site_file=review_site_filename)
 
 
-@app.route('/hello-world/')
-def hello_world():
-    return render_template('hello-world.html')
+# @app.route('/hello/<wine_label>')
+# def hello_world(wine_label):
+#     return render_template('results_pdf.html', wine_label=wine_label)
+#
+# @app.route('/hello_<wine_label>.pdf')
+# def hello_pdf(wine_label):
+#     return render_pdf(url_for('hello_world'), wine_label=wine_label)
 
-@app.route('/pdf-test/')
-def hello_pdf():
-    return render_pdf(url_for('hello_world'))
+@app.route('/pdf')
+def render_pdf_no_html_page():
+    html = render_template('results_pdf.html')
+    css = url_for('static', filename='style.css')
+    print(css)
+    print(type(css))
+
+    return render_pdf(HTML(string=html))
+
 
 
 # @app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<blank>_<description>')
