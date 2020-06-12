@@ -111,28 +111,59 @@ def upload_file(wine_label, review_site):
 #     return render_pdf(HTML(string=html))
 
 
-@app.route('/pdf', methods=['GET','POST'])
-def render_pdf_label():
+# @app.route('/label', methods=['GET','POST'])
+# def render_label():
+#     if request.method == 'POST':
+#         print(request.files)
+#         wine_label = request.form['wine-label']
+#         print(f'wine_label : {wine_label}')
+#
+#         review_site = request.form['review-site']
+#         print(f'review site : {review_site}')
+#
+#         points = request.form['points']
+#         points_length = len(points)
+#         print(f'points : {points}')
+#
+#         description = request.form['description']
+#         print(f'description : {description}')
+#
+#         star = request.form['star']
+#         print(f'star : {star}')
+#
+#         blank = request.form['blank']
+#         print(f'blank: {blank}')
+#
+#     return render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, points=points,
+#                            description=description, star=star, blank=blank, points_length=points_length)
+
+
+@app.route('/label_pdf', methods=['GET', 'POST'])
+def render_label_as_pdf():
     if request.method == 'POST':
         print(request.files)
-        wine_label = request.form['wine-label']
+        wine_label = request.form['wine-label-pdf']
         print(f'wine_label : {wine_label}')
 
-        review_site = request.form['review-site']
+        review_site = request.form['review-site-pdf']
         print(f'review site : {review_site}')
 
-        points = request.form['points']
+        points = request.form['points-pdf']
+        points_length = len(points)
         print(f'points : {points}')
 
-        description = request.form['description']
+        description = request.form['description-pdf']
         print(f'description : {description}')
 
-        star = request.form['star']
+        star = request.form['star-pdf']
         print(f'star : {star}')
 
+        blank = request.form['blank-pdf']
+        print(f'blank: {blank}')
 
-
-    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, points=points,
-                           description=description, star=star)
+        html = render_template('results_pdf.html',wine_label=wine_label, review_site=review_site, points=points,
+                           description=description, star=star, blank=blank, points_length=points_length)
 
     return render_pdf(HTML(string=html))
+
+    # return render_pdf(HTML(string=html))
