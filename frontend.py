@@ -77,9 +77,10 @@ def upload_file(wine_label, review_site):
 # def hello_pdf(wine_label):
 #     return render_pdf(url_for('hello_world'), wine_label=wine_label)
 
-@app.route('/pdf')
-def render_pdf_no_html_page():
-    html = render_template('results_pdf.html')
+@app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<description>')
+def render_pdf_no_html_page(wine_label,review_site,star,points,description):
+    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
+                           points=points, description=description)
     css = url_for('static', filename='style.css')
     print(css)
     print(type(css))

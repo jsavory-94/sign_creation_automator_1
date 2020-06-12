@@ -25,7 +25,9 @@
         <p id="description-label">{{ description }}</p>
     </div>
 
-    <nav><a href="{{ url_for('render_pdf_no_html_page')}}">Get as PDF</a></nav>
+    <button><a href="{{ url_for('render_pdf_no_html_page', wine_label=wine_label, review_site=review_site,
+            star=star, points=points, description=description)}}
+">Get as PDF</a></button>
 
 {#    <form class="mb-3">#}
 {#        <button type="submit"#}
