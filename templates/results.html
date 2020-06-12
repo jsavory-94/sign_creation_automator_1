@@ -25,9 +25,20 @@
         <p id="description-label">{{ description }}</p>
     </div>
 
-    <button><a href="{{ url_for('render_pdf_no_html_page', wine_label=wine_label, review_site=review_site,
-            star=star, points=points, description=description)}}
-">Get as PDF</a></button>
+<form action="/pdf" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="wine-label" value={{wine_label}}>
+  <input type="hidden" name="review-site" value={{review_site}}>
+  <input type="hidden" name="star" value={{star}}>
+  <input type="hidden" name="points" value={{points}}>
+  <input type="hidden" name="blank" value={{blank}}>
+  <input type="hidden" name="description" value="{{description}}">
+  <input type="submit" type="file" value="Render as PDF">
+</form>
+
+
+{#        <a href="{{ url_for('render_results_pdf', wine_label=wine_label, review_site=review_site,#}
+{#            star=star, points=points, description=description, blank=blank)}}#}
+{#">Get as PDF</a>#}
 
 {#    <form class="mb-3">#}
 {#        <button type="submit"#}

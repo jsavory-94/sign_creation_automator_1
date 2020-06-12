@@ -20,6 +20,7 @@ def allowed_file(filename):
 @app.route('/', methods=["GET","POST"])
 def home():
     if request.method == 'POST':
+            print(request.files)
             wine_label = request.files['wine-label']
             review_site = request.files['review-site']
             points = request.form['points']
@@ -53,6 +54,31 @@ def home():
     return render_template('home.html', logo='GS_logo.png')
 
 
+# @app.route('/results', methods=["GET","POST"])
+#     if request.method == 'POST':
+#             wine_label = request.files['wine-label']
+#             review_site = request.files['review-site']
+#             points = request.form['points']
+#             description = request.form['description']
+#
+#             print(f'wine_label : {wine_label}')
+#             print(f'review site : {review_site}')
+#             print(f'points : {points}')
+#             print(f'description : {description}')
+#
+#             return render_template(
+#                 'results_pdf.html',
+#                 points=points,
+#                 points_length = len(points),
+#                 description=description,
+#                 wine_label=wine_label_filename,
+#                 review_site=review_site_filename,
+#                 star='thick-star.png',
+#                 blank='blank.jpg'
+#             )
+
+
+
 @app.route('/uploads/<filename>')
 def serve_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
@@ -77,24 +103,36 @@ def upload_file(wine_label, review_site):
 # def hello_pdf(wine_label):
 #     return render_pdf(url_for('hello_world'), wine_label=wine_label)
 
-@app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<description>')
-def render_pdf_no_html_page(wine_label,review_site,star,points,description):
-    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
-                           points=points, description=description)
-    css = url_for('static', filename='style.css')
-    print(css)
-    print(type(css))
+# @app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<description>')
+# def render_pdf_no_html_page(wine_label,review_site,star,points,description):
+#     html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
+#                            points=points, description=description)
+#
+#     return render_pdf(HTML(string=html))
+
+
+@app.route('/pdf', methods=['GET','POST'])
+def render_pdf_label():
+    if request.method == 'POST':
+        print(request.files)
+        wine_label = request.form['wine-label']
+        print(f'wine_label : {wine_label}')
+
+        review_site = request.form['review-site']
+        print(f'review site : {review_site}')
+
+        points = request.form['points']
+        print(f'points : {points}')
+
+        description = request.form['description']
+        print(f'description : {description}')
+
+        star = request.form['star']
+        print(f'star : {star}')
+
+
+
+    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, points=points,
+                           description=description, star=star)
 
     return render_pdf(HTML(string=html))
-
-
-
-# @app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<blank>_<description>')
-# def render_pdf_no_html_page(wine_label, review_site, star, points, blank, description):
-#     html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
-#                            points=points, blank=blank, description=description)
-#     css = url_for('static', filename='style.css')
-#     print(css)
-#     print(type(css))
-#
-#     return render_pdf(HTML(string=html), stylesheets=css) aaa
