@@ -69,17 +69,21 @@ def upload_file(wine_label, review_site):
     return render_template('sign.html', wine_label=wine_label_filename, review_site_file=review_site_filename)
 
 
-# @app.route('/pdf')
-# def render_pdf():
-#     html = render_template('results.html')
-#     return render_pdf(url_for('home', name='blank.jpg'))
+@app.route('/hello-world/')
+def hello_world():
+    return render_template('hello-world.html')
 
-@app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<blank>_<description>')
-def render_pdf_no_html_page(wine_label, review_site, star, points, blank, description):
-    html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
-                           points=points, blank=blank, description=description)
-    css = url_for('static', filename='style.css')
-    print(css)
-    print(type(css))
+@app.route('/pdf-test/')
+def hello_pdf():
+    return render_pdf(url_for('hello_world'))
 
-    return render_pdf(HTML(string=html), stylesheets=css)
+
+# @app.route('/pdf_<wine_label>_<review_site>_<star>_<points>_<blank>_<description>')
+# def render_pdf_no_html_page(wine_label, review_site, star, points, blank, description):
+#     html = render_template('results_pdf.html', wine_label=wine_label, review_site=review_site, star=star,
+#                            points=points, blank=blank, description=description)
+#     css = url_for('static', filename='style.css')
+#     print(css)
+#     print(type(css))
+#
+#     return render_pdf(HTML(string=html), stylesheets=css) aaa

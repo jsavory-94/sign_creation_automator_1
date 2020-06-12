@@ -23,15 +23,16 @@
         <img src="{{ url_for('serve_file', filename=blank)}}"/>
         </div>
         <p id="description-label">{{ description }}</p>
-
     </div>
 
-    <form class="mb-3">
-        <button type="submit"
-                formaction="/pdf_{{wine_label}}_{{review_site}}_{{star}}_{{points}}_{{blank}}_{{description}}"
-                class="bg-indigo-700 text-white font-bold shadow-md my-2 mb-3 py-2 px-10 rounded-md">Export to pdf
-        </button>
-    </form>
+    <nav><a href="{{ url_for('hello_pdf')}}">Get as PDF</a></nav>
+
+{#    <form class="mb-3">#}
+{#        <button type="submit"#}
+{#                formaction="/pdf-test"#}
+{#                class="bg-indigo-700 text-white font-bold shadow-md my-2 mb-3 py-2 px-10 rounded-md">Render simple pdf#}
+{#        </button>#}
+{#    </form>#}
 
 </body>
 </html>
