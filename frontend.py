@@ -138,27 +138,27 @@ def upload_file(wine_label, review_site):
 #                            description=description, star=star, blank=blank, points_length=points_length)
 
 
-@app.route('/label_pdf', methods=['GET', 'POST'])
+@app.route('/label.pdf', methods=['GET', 'POST'])
 def render_label_as_pdf():
     if request.method == 'POST':
         print(request.files)
-        wine_label = request.form['wine-label-pdf']
+        wine_label = request.form['wine-label']
         print(f'wine_label : {wine_label}')
 
-        review_site = request.form['review-site-pdf']
+        review_site = request.form['review-site']
         print(f'review site : {review_site}')
 
-        points = request.form['points-pdf']
+        points = request.form['points']
         points_length = len(points)
         print(f'points : {points}')
 
-        description = request.form['description-pdf']
+        description = request.form['description']
         print(f'description : {description}')
 
-        star = request.form['star-pdf']
+        star = request.form['star']
         print(f'star : {star}')
 
-        blank = request.form['blank-pdf']
+        blank = request.form['blank']
         print(f'blank: {blank}')
 
         html = render_template('results_pdf.html',wine_label=wine_label, review_site=review_site, points=points,
