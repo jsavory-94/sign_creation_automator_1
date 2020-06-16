@@ -1,0 +1,200 @@
+html{
+    font-family:"Roboto Condensed"
+}
+
+body{
+    margin: 0 0 0 0;
+}
+
+.label {
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(24, 0.25cm);
+    grid-template-rows: repeat(32, 0.25cm);
+    font-family: "Roboto Condensed"
+}
+
+h2{
+   margin-top:25px;
+}
+
+h3 {font-family: "Roboto Condensed"
+}
+
+form {
+    max-width: 200px;
+    margin-left:10px
+}
+
+.topnav {
+    display: grid;
+    grid-template-rows: repeat(1, 50px);
+    grid-template-columns: repeat(1, 100px);
+    overflow: hidden;
+    background-color: #EAECEE;
+    height: 60px
+  }
+
+#header-image {
+    margin-top:10px
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+#wine-label {
+    grid-column-start: 2;
+    grid-column-end: 11;
+    grid-row-start: 3;
+    grid-row-end: 15;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#review-site {
+    grid-column-start: 13;
+    grid-column-end: 24;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#star {
+    grid-column-start: 13;
+    grid-column-end: 23;
+    grid-row-start: 7;
+    grid-row-end: 16;
+    height: 100%;
+    width: 100%
+}
+
+
+#points-number-3-digit {
+    font-family:"Roboto Black";
+    font-size: 20pt;
+    margin: 0 0 0 0;
+    grid-column-start: 15;
+    grid-column-end: 21;
+    grid-row-start: 10;
+    grid-row-end: 14;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transform: scale(0.75,1)
+}
+
+#points-number-2-digit {
+    font-family:"Roboto Black";
+    font-size: 20pt;
+    margin: 0 0 0 0;
+    grid-column-start: 16;
+    grid-column-end: 21;
+    grid-row-start: 10;
+    grid-row-end: 14;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transform: scale(0.75,1)
+}
+
+#points-number-1-digit {
+    font-family:"Roboto Black";
+    font-size: 20pt;
+    margin: 0 0 0 0;
+    grid-column-start: 17;
+    grid-column-end: 21;
+    grid-row-start: 10;
+    grid-row-end: 14;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transform: scale(0.75,1)
+}
+
+#points-pt {
+    font-family:"Roboto Medium";
+    font-size: 10pt;
+    margin: 0 0 0 0;
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row-start: 11;
+    grid-row-end: 15;
+    overflow: hidden;
+    transform: scale(0.75,1);
+    margin-left:0.05 cm
+}
+
+#points-pt-3-digit {
+    font-family:"Roboto Medium";
+    font-size: 10pt;
+    margin: 0 0 0 0;
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row-start: 11;
+    grid-row-end: 15;
+    overflow: hidden;
+    transform: scale(0.75,1);
+    margin-left: 0.1cm;
+}
+
+#points-pt-2-digit {
+    font-family:"Roboto Medium";
+    font-size: 10pt;
+    margin: 0 0 0 0;
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row-start: 11;
+    grid-row-end: 15;
+    overflow: hidden;
+    transform: scale(0.75,1);
+    margin-left:0.05cm
+}
+
+#points-pt-1-digit {
+    font-family:"Roboto Medium";
+    font-size: 10pt;
+    margin: 0 0 0 0;
+    grid-column-start: 18;
+    grid-column-end: 23;
+    grid-row-start: 11;
+    grid-row-end: 15;
+    overflow: hidden;
+    transform: scale(0.75,1);
+    margin-left: 0.15cm
+}
+
+
+#description-label {
+    margin: 0 0 0 0;
+    word-wrap: break-word;
+    word-break:break-all;
+    grid-column-start: 2;
+    grid-column-end: 24;
+    grid-row-start: 17;
+    grid-row-end: 31;
+    height: 100%;
+    max-width: 100%;
+    text-overflow: clip;
+    font-family: "Microsoft Sans Serif";
+    overflow: hidden;
+    z-index: 1;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+#blank {
+    grid-column-start: 2;
+    grid-column-end: 25;
+    grid-row-start:30;
+    grid-row-end:31;
+    max-height:100%;
+    max-width:100%;
+    object-fit: contain;
+    z-index: 2;
+    }

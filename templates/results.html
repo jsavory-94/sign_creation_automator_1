@@ -2,52 +2,33 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
-</head>
-
 <body>
-    <div class="label">
-        <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" />
-        <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
-        <img class="image" id="star" src="{{ url_for('serve_file', filename=star)}}"/>
-        {%if  points_length==3%}
-            <p style="color:white" id="points-number-3-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-3-digit">pt</p>
-        {%elif points_length==2%}
-            <p style="color:white" id="points-number-2-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-2-digit">pt</p>
-        {%elif points_length==1%}
-            <p style="color:white" id="points-number-1-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-1-digit">pt</p>
-        {%endif%}
-        <div id="blank">
-        <img src="{{ url_for('serve_file', filename=blank)}}"/>
-        </div>
-        <p id="description-label">{{ description }}</p>
+    <div class="flex-container-grandparent">
+      <div class="flex-container-parent-1">
+        <div id="flex-item-1">1</div>
+        <div id="flex-item-2">2</div>
+      </div>
+      <div class="flex-container-parent-2">
+        <div id="flex-item-1">1</div>
+        <div id="flex-item-2">2</div>
+      </div>
+      <div class="flex-container-parent-3">
+        <div id="flex-item-1">1</div>
+        <div id="flex-item-2">2</div>
+      </div>
     </div>
 
 
+    <form action="/label.pdf" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="wine-label" value={{ wine_label }}>
+        <input type="hidden" name="review-site" value={{ review_site }}>
+        <input type="hidden" name="star" value={{ star }}>
+        <input type="hidden" name="points" value={{ points }}>
+        <input type="hidden" name="blank" value={{ blank }}>
+        <input type="hidden" name="description" value="{{ description }}">
+        <input type="submit" type="file" value="Render as PDF">
+    </form>
 
-<form action="/label.pdf" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="wine-label" value={{wine_label}}>
-  <input type="hidden" name="review-site" value={{review_site}}>
-  <input type="hidden" name="star" value={{star}}>
-  <input type="hidden" name="points" value={{points}}>
-  <input type="hidden" name="blank" value={{blank}}>
-  <input type="hidden" name="description" value="{{description}}">
-  <input type="submit" type="file" value="Render as PDF">
-</form>
-
-
-{#        <a href="{{ url_for('render_results_pdf', wine_label=wine_label, review_site=review_site,#}
-{#            star=star, points=points, description=description, blank=blank)}}#}
-{#">Get as PDF</a>#}
-
-{#    <form class="mb-3">#}
-{#        <button type="submit"#}
-{#                formaction="/pdf-test"#}
-{#                class="bg-indigo-700 text-white font-bold shadow-md my-2 mb-3 py-2 px-10 rounded-md">Render simple pdf#}
-{#        </button>#}
-{#    </form>#}
 
 </body>
 </html>
