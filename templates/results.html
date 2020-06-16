@@ -3,22 +3,22 @@
 <head>
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">#}
     <style>
-        @page{
-            margin:0
+        @page {
+            margin: 0
         }
 
         html {
             align-items: center;
-            align-content:center;
-            display:flex;
+            align-content: center;
+            display: flex;
             background: #eef1f5;
             justify-content: center;
-            margin-top:75px
-            font-family:"Microsoft Sans Serif", sans-serif;
+            margin-top: 75px
+            font-family: "Microsoft Sans Serif", sans-serif;
         }
 
-        p{
-            margin:0 0 0 0;
+        p {
+            margin: 0 0 0 0;
         }
 
         .flex-container-grandparent {
@@ -113,41 +113,71 @@
         }
 
         .points-value-single-digit {
-            font-family:"Roboto Black";
-            font-size:26px;
+            font-family: "Roboto Black";
+            font-size: 26px;
             font-weight: bold;
-            position:absolute;
+            position: absolute;
             color: white;
-            top:31%;
-            left:28%;
-            transform: scale(0.68,1)
+            top: 31%;
+            left: 37%;
+            transform: scale(0.68, 1)
         }
 
         .points-value-double-digit {
-            font-family:"Roboto Black";
-            font-size:26px;
+            font-family: "Roboto Black";
+            font-size: 26px;
             font-weight: bold;
-            position:absolute;
+            position: absolute;
             color: white;
-            top:31%;
-            left:28%;
-            transform: scale(0.68,1)
+            top: 31%;
+            left: 28%;
+            transform: scale(0.68, 1)
+        }
+
+        .points-value-triple-digit {
+            font-family: "Roboto Black";
+            font-size: 26px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 31%;
+            left: 15%;
+            transform: scale(0.68, 1)
         }
 
 
-
-        .points-unit {
-            font-size:16px;
+        .points-unit-single-digit {
+            font-size: 16px;
             font-weight: bold;
-            position:absolute;
+            position: absolute;
             color: white;
-            top:46%;
-            left:61%;
-            transform: scale(0.70,1)
+            top: 44%;
+            left: 54%;
+            transform: scale(0.70, 1)
         }
 
-        .form-control{
-            margin-top:25px
+        .points-unit-double-digit {
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 46%;
+            left: 61%;
+            transform: scale(0.70, 1)
+        }
+
+        .points-unit-triple-digit {
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 46%;
+            left: 61%;
+            transform: scale(0.70, 1)
+        }
+
+        .form-control {
+            margin-top: 25px
         }
 
 
@@ -166,31 +196,37 @@
         </div>
         <div id="flex-item-3">
             {% if points_length == 1 %}
-            <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
-            <div class="points-value-single-digit"> <p>{{ points }}</p></div>
-            <div class="points-unit"> <p>pt</p></div>
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-single-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-single-digit"><p>pt</p></div>
 
             {% elif points_length ==2 %}
-            <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
-            <div class="points-value-double-digit"> <p>{{ points }}</p></div>
-            <div class="points-unit"> <p>pt</p></div>
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-double-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-double-digit"><p>pt</p></div>
 
+            {% elif points_length ==3 %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-triple-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-triple-digit"><p>pt</p></div>
+            {% endif %}
         </div>
     </div>
-<div class="flex-container-parent-3">
-    <div id="flex-item-4"> <p>{{ description }}</p><div>
-</div>
-</div>
+    <div class="flex-container-parent-3">
+        <div id="flex-item-4"><p>{{ description }}</p>
+            <div>
+            </div>
+        </div>
 
-<form action="/label.pdf" method="post" enctype="multipart/form-data" class="form-control">
-    <input type="hidden" name="wine-label" value={{ wine_label }}>
-    <input type="hidden" name="review-site" value={{ review_site }}>
-    <input type="hidden" name="star" value={{ star }}>
-    <input type="hidden" name="points" value={{ points }}>
-    <input type="hidden" name="blank" value={{ blank }}>
-    <input type="hidden" name="description" value="{{ description }}">
-    <input type="submit" type="file" value="Render as PDF">
-</form>
+        <form action="/label.pdf" method="post" enctype="multipart/form-data" class="form-control">
+            <input type="hidden" name="wine-label" value={{ wine_label }}>
+            <input type="hidden" name="review-site" value={{ review_site }}>
+            <input type="hidden" name="star" value={{ star }}>
+            <input type="hidden" name="points" value={{ points }}>
+            <input type="hidden" name="blank" value={{ blank }}>
+            <input type="hidden" name="description" value="{{ description }}">
+            <input type="submit" type="file" value="Render as PDF">
+        </form>
 
 
 </body>
