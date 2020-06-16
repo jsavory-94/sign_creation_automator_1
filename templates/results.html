@@ -14,6 +14,7 @@
             background: #eef1f5;
             justify-content: center;
             margin-top:75px
+            font-family:"Microsoft Sans Serif", sans-serif;
         }
 
         p{
@@ -56,6 +57,7 @@
             background-color: white;
             height: 4cm;
             width: 6cm
+
         }
 
         #flex-item-1 {
@@ -85,11 +87,6 @@
             color: white;
         }
 
-        #flex-item-3-inner {
-            position:absolute;
-        }
-
-
         #flex-item-4 {
             background-color: white;
             margin: 0.2cm 0.2cm 0.2cm 0.2cm;
@@ -115,25 +112,38 @@
             position: relative;
         }
 
-        .points-value {
+        .points-value-single-digit {
             font-family:"Roboto Black";
-            font-size:30px;
+            font-size:26px;
             font-weight: bold;
             position:absolute;
             color: white;
             top:31%;
-            left:30%;
-            transform: scale(0.8,1)
+            left:28%;
+            transform: scale(0.68,1)
         }
 
-        .points-unit {
-            font-size:14px;
+        .points-value-double-digit {
+            font-family:"Roboto Black";
+            font-size:26px;
             font-weight: bold;
             position:absolute;
             color: white;
-            top:50%;
-            left:63%;
-            transform: scale(0.8,1)
+            top:31%;
+            left:28%;
+            transform: scale(0.68,1)
+        }
+
+
+
+        .points-unit {
+            font-size:16px;
+            font-weight: bold;
+            position:absolute;
+            color: white;
+            top:46%;
+            left:61%;
+            transform: scale(0.70,1)
         }
 
         .form-control{
@@ -155,9 +165,16 @@
             <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
         </div>
         <div id="flex-item-3">
+            {% if points_length == 1 %}
             <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
-            <div class="points-value"> <p>{{ points }}</p></div>
+            <div class="points-value-single-digit"> <p>{{ points }}</p></div>
             <div class="points-unit"> <p>pt</p></div>
+
+            {% elif points_length ==2 %}
+            <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+            <div class="points-value-double-digit"> <p>{{ points }}</p></div>
+            <div class="points-unit"> <p>pt</p></div>
+
         </div>
     </div>
 <div class="flex-container-parent-3">
