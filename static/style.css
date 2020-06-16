@@ -13,7 +13,7 @@
   flex-wrap: wrap;
   background-color: DodgerBlue;
   height: 4cm;
-  width: 3cm
+  width: 3cm;
 }
 
 .flex-container-parent-2{
@@ -45,14 +45,30 @@
 
 #flex-item-1{
   background-color: #f1f1f1;
-  margin:10px;
+  margin:0.2cm;
   height: 2.25cm;
-  width: 3cm
+  width: 3cm;
+  margin-top:0.5cm;
+  margin-bottom:0.5cm
 }
 
 #flex-item-2{
   background-color: #f1f1f1;
-  margin:10px;
+  margin:0.2cm;
   height: 1cm;
-  width: 1cm
+  width: 2.5cm
+}
+
+#flex-item-3{
+  background-color: #f1f1f1;
+  margin:0.2cm;
+  height: 2.25cm;
+  width: 2.5cm
+}
+
+#flex-item-4{
+  background-color: #f1f1f1;
+  margin:0.2cm 0.2cm 0.2cm 0.2cm;
+  height: 3.6cm;
+  width: 5.8cm
 }
