@@ -3,20 +3,38 @@
 <head>
     {#    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">#}
     <style>
+        @page{
+            margin:0
+        }
+
+        html {
+            align-items: center;
+            align-content:center;
+            display:flex;
+            background: #eef1f5;
+            justify-content: center;
+            margin-top:75px
+        }
+
+        p{
+            margin:0 0 0 0;
+        }
+
         .flex-container-grandparent {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
-            background-color: #08233D;
+            background-color: white;
             height: 8cm;
             width: 6cm;
+            margin-bottom: 75px;
         }
 
         .flex-container-parent-1 {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
-            background-color: DodgerBlue;
+            background-color: white;
             height: 4cm;
             width: 3cm;
         }
@@ -25,41 +43,33 @@
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
-            background-color: DodgerBlue;
+            background-color: white;
             height: 4cm;
             width: 3cm
         }
 
-        .flex-container-parent-2 {
-            display: flex;
-            align-content: flex-start;
-            flex-wrap: wrap;
-            background-color: DodgerBlue;
-            height: 4cm;
-            width: 3cm
-        }
 
         .flex-container-parent-3 {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
-            background-color: DodgerBlue;
+            background-color: white;
             height: 4cm;
             width: 6cm
         }
 
         #flex-item-1 {
-            background-color: #f1f1f1;
+            background-color: white;
             margin: 0.2cm;
             height: 2.25cm;
             width: 3cm;
             margin-top: 0.5cm;
             margin-bottom: 0.5cm
-            object-fit:contain;
+            object-fit: contain;
         }
 
         #flex-item-2 {
-            background-color: #f1f1f1;
+            background-color: white;
             margin: 0.2cm;
             height: 1cm;
             width: 2.5cm;
@@ -67,36 +77,69 @@
         }
 
         #flex-item-3 {
-            background-color: #f1f1f1;
             margin: 0.2cm;
             height: 2.25cm;
             width: 2.5cm;
-            object-fit:contain;
+            position: relative;
+            text-align: center;
+            color: white;
         }
 
+        #flex-item-3-inner {
+            position:absolute;
+        }
+
+
         #flex-item-4 {
-            background-color: #f1f1f1;
+            background-color: white;
             margin: 0.2cm 0.2cm 0.2cm 0.2cm;
             height: 3.6cm;
             width: 5.8cm;
-            overflow:hidden;
+            overflow: hidden;
             text-overflow: clip;
         }
 
-        #wine-label{
-            max-height:2.25cm;
-            max-width:3cm;
+        #wine-label {
+            max-height: 2.25cm;
+            max-width: 3cm;
         }
 
-        #review-site{
-            max-height:1cm;
-            max-width:2.5cm;
+        #review-site {
+            max-height: 1cm;
+            max-width: 2.5cm;
         }
 
-        #star{
-            max-height:2.25cm;
-            max-width:2.5cm;
+        #star {
+            max-height: 2.25cm;
+            max-width: 2.5cm;
+            position: relative;
         }
+
+        .points-value {
+            font-family:"Roboto Black";
+            font-size:30px;
+            font-weight: bold;
+            position:absolute;
+            color: white;
+            top:31%;
+            left:30%;
+            transform: scale(0.8,1)
+        }
+
+        .points-unit {
+            font-size:14px;
+            font-weight: bold;
+            position:absolute;
+            color: white;
+            top:50%;
+            left:63%;
+            transform: scale(0.8,1)
+        }
+
+        .form-control{
+            margin-top:25px
+        }
+
 
     </style>
 </head>
@@ -104,25 +147,25 @@
 <div class="flex-container-grandparent">
     <div class="flex-container-parent-1">
         <div id="flex-item-1">
-            <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" />
+            <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}"/>
         </div>
     </div>
     <div class="flex-container-parent-2">
         <div id="flex-item-2">
-            <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}" />
+            <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
         </div>
         <div id="flex-item-3">
-            <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}" />
-            <p id="points">{{ points }}</p>
+            <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+            <div class="points-value"> <p>{{ points }}</p></div>
+            <div class="points-unit"> <p>pt</p></div>
         </div>
     </div>
-    <div class="flex-container-parent-3">
-        <div id="flex-item-4">{{description}}</div>
-    </div>
+<div class="flex-container-parent-3">
+    <div id="flex-item-4"> <p>{{ description }}</p><div>
+</div>
 </div>
 
-
-<form action="/label.pdf" method="post" enctype="multipart/form-data">
+<form action="/label.pdf" method="post" enctype="multipart/form-data" class="form-control">
     <input type="hidden" name="wine-label" value={{ wine_label }}>
     <input type="hidden" name="review-site" value={{ review_site }}>
     <input type="hidden" name="star" value={{ star }}>

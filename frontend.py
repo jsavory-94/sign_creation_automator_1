@@ -51,7 +51,7 @@ def home():
                 blank='blank.jpg'
             )
 
-    return render_template('results.html    ', logo='GS_logo.png')
+    return render_template('home.html', logo='GS_logo.png')
 
 
 # @app.route('/results', methods=["GET","POST"])
@@ -161,7 +161,7 @@ def render_label_as_pdf():
         blank = request.form['blank']
         print(f'blank: {blank}')
 
-        html = render_template('results-grid.html',wine_label=wine_label, review_site=review_site, points=points,
+        html = render_template('results.html',wine_label=wine_label, review_site=review_site, points=points,
                            description=description, star=star, blank=blank, points_length=points_length)
 
     return render_pdf(HTML(string=html))
