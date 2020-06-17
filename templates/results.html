@@ -25,7 +25,7 @@
             margin: 0 0 0 0;
         }
 
-        .flex-container-grandparent {
+        .label {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
@@ -36,7 +36,7 @@
             margin-top:175px;
         }
 
-        .flex-container-parent-1 {
+        .top-left-parent {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
@@ -45,7 +45,7 @@
             width: 3cm;
         }
 
-        .flex-container-parent-2 {
+        .top-right-parent {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
@@ -55,7 +55,7 @@
         }
 
 
-        .flex-container-parent-3 {
+        .bottom-half-parent {
             display: flex;
             align-content: flex-start;
             flex-wrap: wrap;
@@ -65,7 +65,7 @@
 
         }
 
-        #flex-item-1 {
+        #top-left-item {
             background-color: white;
             margin: 0.2cm;
             height: 3.5cm;
@@ -75,7 +75,7 @@
             object-fit: contain;
         }
 
-        #flex-item-2 {
+        #top-right-item-upper {
             background-color: white;
             margin: 0.2cm;
             height: 1cm;
@@ -83,7 +83,7 @@
             object-fit: contain;
         }
 
-        #flex-item-3 {
+        #top-right-item-lower {
             margin: 0.2cm;
             height: 2.25cm;
             width: 2.5cm;
@@ -92,7 +92,7 @@
             color: white;
         }
 
-        #flex-item-4 {
+        #bottom-half-item {
             background-color: white;
             margin: 0.2cm 0.2cm 0.2cm 0.2cm;
             height: 3.75cm;
@@ -190,17 +190,17 @@
     </style>
 </head>
 <body>
-<div class="flex-container-grandparent">
-    <div class="flex-container-parent-1">
-        <div id="flex-item-1">
+<div class="label">
+    <div class="top-left-parent">
+        <div id="top-left-item">
             <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}"/>
         </div>
     </div>
-    <div class="flex-container-parent-2">
-        <div id="flex-item-2">
+    <div class="top-right-parent">
+        <div id="top-right-item-upper">
             <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
         </div>
-        <div id="flex-item-3">
+        <div id="top-right-item-lower">
             {% if points_length == 1 %}
                 <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
                 <div class="points-value-single-digit"><p>{{ points }}</p></div>
@@ -218,10 +218,8 @@
             {% endif %}
         </div>
     </div>
-    <div class="flex-container-parent-3">
-        <div id="flex-item-4"><p>{{ description }}</p>
-            <div>
-            </div>
+        <div class="bottom-half-parent">
+        <div id="bottom-half-item"><p>{{ description }}</p>s
         </div>
 
         <form action="/label.pdf" method="post" enctype="multipart/form-data" class="form-control">
