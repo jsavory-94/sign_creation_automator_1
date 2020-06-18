@@ -215,6 +215,10 @@
                 <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
                 <div class="points-value-triple-digit"><p>{{ points }}</p></div>
                 <div class="points-unit-triple-digit"><p>pt</p></div>
+            {% else %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-triple-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-triple-digit"><p>pt</p></div>
             {% endif %}
         </div>
     </div>
