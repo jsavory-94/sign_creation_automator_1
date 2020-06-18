@@ -19,14 +19,19 @@ def allowed_file(filename):
 @app.route('/', methods=["GET", "POST"])
 def home():
     if request.method == 'POST':
+        print(request.files)
+        print(request.form)
         wine_label = request.files['wine-label']
+        print(wine_label)
         review_site = request.files['review-site']
+        print(review_site)
         if review_site.filename == '':
             return redirect(url_for('home'))
 
         points = request.form['points']
+        print(points)
         description = request.form['description']
-
+        print(description)
         wine_label_filename = secure_filename(wine_label.filename)
         wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
 
