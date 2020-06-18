@@ -23,6 +23,9 @@ def home():
             print(request.files)
             wine_label = request.files['wine-label']
             review_site = request.files['review-site']
+            if review_site.filename == '':
+                return redirect(url_for('home'))
+
             points = request.form['points']
             description = request.form['description']
 
