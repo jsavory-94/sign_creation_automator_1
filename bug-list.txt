@@ -1,0 +1,4 @@
+- ugly form errors
+- variable names
+- regular view star text differing from pdf
+- catching bad point inputs

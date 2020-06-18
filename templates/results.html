@@ -1,51 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    {#    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">#}
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+        @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+        @page {
+            margin: 0
+        }
+
+
+        html {
+            align-items: center;
+            align-content: center;
+            display: flex;
+            background: #eef1f5;
+            justify-content: center;
+            margin-top: 75px;
+            font-family:"Roboto Condensed";
+        }
+
+        p {
+            margin: 0 0 0 0;
+        }
+
+        .label {
+            display: flex;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-color: white;
+            height: 8.15cm;
+            width: 6cm;
+            margin-bottom: 75px;
+            margin-top:175px;
+        }
+
+        .top-left-parent {
+            display: flex;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-color: white;
+            height: 4cm;
+            width: 3cm;
+        }
+
+        .top-right-parent {
+            display: flex;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-color: white;
+            height: 4cm;
+            width: 3cm
+        }
+
+
+        .bottom-half-parent {
+            display: flex;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-color: white;
+            height: 4cm;
+            width: 6cm
+
+        }
+
+        #top-left-item {
+            background-color: white;
+            margin: 0.2cm;
+            height: 3.5cm;
+            width: 2.63cm;
+            margin-top: 0.65cm;
+            margin-bottom: 0.35cm
+            object-fit: contain;
+        }
+
+        #top-right-item-upper {
+            background-color: white;
+            margin: 0.2cm;
+            height: 1cm;
+            width: 2.5cm;
+            object-fit: contain;
+        }
+
+        #top-right-item-lower {
+            margin: 0.2cm;
+            height: 2.25cm;
+            width: 2.5cm;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        #bottom-half-item {
+            background-color: white;
+            margin: 0.2cm 0.2cm 0.2cm 0.2cm;
+            height: 3.75cm;
+            width: 5.8cm;
+            overflow: hidden;
+            text-overflow: clip;
+            font-size: 12px;
+            text-align:justify;
+        }
+
+        #wine-label {
+            max-height: 3.5cm;
+            max-width: 2.63cm;
+        }
+
+        #review-site {
+            max-height: 1cm;
+            max-width: 2.5cm;
+        }
+
+        #star {
+            max-height: 2.25cm;
+            max-width: 2.5cm;
+            position: relative;
+        }
+
+        .points-value-single-digit {
+            font-family:"Roboto Black";
+            font-size: 26px;
+            font-weight:bold;
+            position: absolute;
+            color: white;
+            top: 31%;
+            left: 38%;
+            transform: scale(0.68, 1)
+        }
+
+        .points-unit-single-digit {
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 44%;
+            left:55%;
+            transform: scale(0.80, 1)
+        }
+
+        .points-value-double-digit {
+            font-family:"Roboto Black";
+            font-size: 26px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 31%;
+            left: 27%;
+            transform: scale(0.68, 1)
+        }
+
+        .points-unit-double-digit {
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 44%;
+            left: 59%;
+            transform: scale(0.70, 1)
+        }
+
+        .points-value-triple-digit {
+            font-family:"Roboto Black";
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 35%;
+            left: 22%;
+            transform: scale(0.68, 1)
+        }
+
+        .points-unit-triple-digit {
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            top: 45%;
+            left: 62%;
+            transform: scale(0.70, 1)
+        }
+
+        .form-control {
+            margin-top: 25px
+        }
+
+
+    </style>
 </head>
-
 <body>
-    <div class="label">
-        <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" />
-        <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
-        <img class="image" id="star" src="{{ url_for('serve_file', filename=star)}}"/>
-        {%if  points_length==3%}
-            <p style="color:white" id="points-number-3-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-3-digit">pt</p>
-        {%elif points_length==2%}
-            <p style="color:white" id="points-number-2-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-2-digit">pt</p>
-        {%elif points_length==1%}
-            <p style="color:white" id="points-number-1-digit">{{ points }}</p>
-            <p style="color:white" id="points-pt-1-digit">pt</p>
-        {%endif%}
-        <div id="blank">
-        <img src="{{ url_for('serve_file', filename=blank)}}"/>
+<div class="label">
+    <div class="top-left-parent">
+        <div id="top-left-item">
+            <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}"/>
         </div>
-        <p id="description-label">{{ description }}</p>
     </div>
+    <div class="top-right-parent">
+        <div id="top-right-item-upper">
+            <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
+        </div>
+        <div id="top-right-item-lower">
+            {% if points_length == 1 %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-single-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-single-digit"><p>pt</p></div>
 
-<form action="/pdf" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="wine-label" value={{wine_label}}>
-  <input type="hidden" name="review-site" value={{review_site}}>
-  <input type="hidden" name="star" value={{star}}>
-  <input type="hidden" name="points" value={{points}}>
-  <input type="hidden" name="blank" value={{blank}}>
-  <input type="hidden" name="description" value="{{description}}">
-  <input type="submit" type="file" value="Render as PDF">
-</form>
+            {% elif points_length ==2 %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-double-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-double-digit"><p>pt</p></div>
 
+            {% elif points_length ==3 %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-triple-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-triple-digit"><p>pt</p></div>
+            {% else %}
+                <img class="image" id="star" src="{{ url_for('serve_file', filename=star) }}"/>
+                <div class="points-value-triple-digit"><p>{{ points }}</p></div>
+                <div class="points-unit-triple-digit"><p>pt</p></div>
+            {% endif %}
+        </div>
+    </div>
+        <div class="bottom-half-parent">
+        <div id="bottom-half-item"><p>{{ description }}</p>
+        </div>
 
-{#        <a href="{{ url_for('render_results_pdf', wine_label=wine_label, review_site=review_site,#}
-{#            star=star, points=points, description=description, blank=blank)}}#}
-{#">Get as PDF</a>#}
+        <form action="/label.pdf" method="post" enctype="multipart/form-data" class="form-control">
+            <input type="hidden" name="wine-label" value={{ wine_label }}>
+            <input type="hidden" name="review-site" value={{ review_site }}>
+            <input type="hidden" name="star" value={{ star }}>
+            <input type="hidden" name="points" value={{ points }}>
+            <input type="hidden" name="blank" value={{ blank }}>
+            <input type="hidden" name="description" value="{{ description }}">
+            <input type="submit" type="file" value="Render as PDF">
+        </form>
 
-{#    <form class="mb-3">#}
-{#        <button type="submit"#}
-{#                formaction="/pdf-test"#}
-{#                class="bg-indigo-700 text-white font-bold shadow-md my-2 mb-3 py-2 px-10 rounded-md">Render simple pdf#}
-{#        </button>#}
-{#    </form>#}
 
 </body>
 </html>

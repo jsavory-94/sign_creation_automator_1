@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='grid-style.css') }}">
+</head>
+
+<body>
+    <div class="label">
+        <img class="image" id="wine-label" src="{{ url_for('serve_file', filename=wine_label) }}" />
+        <img class="image" id="review-site" src="{{ url_for('serve_file', filename=review_site) }}"/>
+        <img class="image" id="star" src="{{ url_for('serve_file', filename=star)}}"/>
+        {%if  points_length==3%}
+            <p style="color:white" id="points-number-3-digit">{{ points }}</p>
+            <p style="color:white" id="points-pt-3-digit">pt</p>
+        {%elif points_length==2%}
+            <p style="color:white" id="points-number-2-digit">{{ points }}</p>
+            <p style="color:white" id="points-pt-2-digit">pt</p>
+        {%elif points_length==1%}
+            <p style="color:white" id="points-number-1-digit">{{ points }}</p>
+            <p style="color:white" id="points-pt-1-digit">pt</p>
+        {%endif%}
+        <div id="blank">
+        <img src="{{ url_for('serve_file', filename=blank)}}"/>
+        </div>
+        <p id="description-label">{{ description }}</p>
+    </div>
+</body>
