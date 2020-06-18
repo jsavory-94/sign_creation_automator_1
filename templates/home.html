@@ -6,61 +6,60 @@
 </head>
 
 <div class="topnav">
-  <img id="header-image" src="{{ url_for("static", filename='Graceway_supermarkets_logo.png')}}" />
+    <img id="header-image" src="{{ url_for("static", filename='Graceway_supermarkets_logo.png') }}"/>
 </div>
 
 
 <div class="container">
     <form method="post" enctype="multipart/form-data" border-2 bg-gray-100>
-    <div class="form">
-        <h2 class="mt-4 ml-6 text-xl">Provide Sign Details</h2>
-    </div>
-
-    <div class="row mt-2">
-        <label class="ml-6"> <b> Wine Label</b></label>
-    </div>
-    <div>
-        <div class="form-group">
-            <input type="file" name="wine-label" id="wine-label" class="form-control">
+        <div class="form">
+            <h2 class="mt-4 ml-6 text-xl">Provide Sign Details</h2>
         </div>
-    </div>
 
-
-    <div class="row mt-2">
-        <label class="mb-2 ml-6"> <b>Review Site</b></label>
-    </div>
-    <div>
-        <div class="form-group">
-            <input type="file" name="review-site" id="review-site" class="form-control">
+        <div class="row mt-2">
+            <label class="ml-6"> <b> Wine Label</b></label>
         </div>
-    </div>
-
-
-    <div class="row mt-2">
-        <label class="ml-6"> <b>Points</b></label>
-    </div>
-    <div class="form-control">
         <div>
-            <input type="text" name="points" id="points" class="text-field">
+            <div class="form-group">
+                <input type="file" name="wine-label" id="wine-label" class="form-control">
+            </div>
         </div>
-    </div>
 
 
-    <div class="row mt-2">
-        <label class="ml-6"><b>Description</b></label>
-    <div>
+        <div class="row mt-2">
+            <label class="mb-2 ml-6"> <b>Review Site</b></label>
+        </div>
+        <div>
+            <div class="form-group">
+                <input type="file" name="review-site" id="review-site" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <label class="ml-6"> <b>Points</b></label>
+        </div>
         <div class="form-control">
-                    <textarea  id="description" name="description" class="text-field">
-                    </textarea>
+            <div>
+                <input type="text" name="points" id="points" class="text-field">
+            </div>
         </div>
 
 
+        <div class="row mt-2">
+            <label class="ml-6"><b>Description</b></label>
+            <div>
+                <div class="form-control">
+                    <textarea id="description" name="description" class="text-field">
+                    </textarea>
+                </div>
 
-    <div class="form-control">
-        <input type="submit" type="file"
-               class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 ml-6 mb-3 mt-2"
-               value="Submit">
-    </div>
+
+                <div class="form-control">
+                    <input type="submit" type="file"
+                           class="bg-indigo-700 text-white text-md px-2 py-1 rounded-md shadow-md hover:bg-gray-700 ml-6 mb-3 mt-2"
+                           value="Submit">
+                </div>
 
 
     </form>
