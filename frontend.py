@@ -49,7 +49,7 @@ def home():
             blank='blank.jpg'
         )
 
-    return render_template('home.html', logo='GS_logo.png')
+    return render_template('home-tailwind.html', logo='GS_logo.png')
 
 
 @app.route('/uploads/<filename>')
