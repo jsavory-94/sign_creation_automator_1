@@ -29,6 +29,10 @@ def home():
         print(points)
         description = request.form['description']
         print(description)
+
+        if wine_label.filename == '':
+            return redirect(url_for('home'))
+
         wine_label_filename = secure_filename(wine_label.filename)
         wine_label.save(os.path.join(app.config['UPLOAD_FOLDER'], wine_label_filename))
 
