@@ -65,9 +65,9 @@ def upload_file(wine_label, review_site):
 @app.route('/label.pdf', methods=['GET', 'POST'])
 def render_label_as_pdf():
     if request.method == 'POST':
-        wine_label = request.form['wine']
+        wine_label = request.form['wine-label']
 
-        review_site = request.form['review']
+        review_site = request.form['review-site']
 
         points = request.form['points']
         points_length = len(points)
