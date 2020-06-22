@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="">
 
 <head>
     <style>
-        @page{
-            margin:0
+        @page {
+            margin: 0
         }
 
         .topnav {
@@ -14,46 +14,54 @@
             height: 60px
         }
 
-        #topnav-image{
-            margin-top:5px;
-            margin-left:10px;
+        #topnav-image {
+            margin-top: 5px;
+            margin-left: 10px;
             margin-bottom: 5px;
-            max-height:60px;
-            max-width:100px;
+            max-height: 60px;
+            max-width: 100px;
         }
 
-        h2{
-            margin-left:10px;
+        h2 {
+            margin-left: 10px;
         }
 
-        body{
-            background:whitesmoke;
+        body {
+            background: whitesmoke;
         }
 
-        .form-container{
-            dispay:flex;
-            margin-left:10px;
+        .form-container {
+            display: flex;
+            margin-left: 10px;
             box-shadow: 0px 0px 5px 2px gray;
             border-radius: 15px 15px 15px 15px;
-            background:white;
-            width:280px;
-            height:380px;
+            background: white;
+            width: 280px;
+            height: 380px;
         }
 
-        .form-item{
-            margin:10px 10px 10px 10px;
+        .form-item {
+            margin: 10px 10px 10px 10px;
         }
 
-        .form-content{
-            display:flex;
+        .form-content {
+            display: flex;
         }
 
-        textarea{
-            height:150px;
+        textarea {
+            height: 150px;
             width: 240px;
         }
 
+        #errors{
+            display:flex;
+        }
+
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 </head>
 
@@ -65,45 +73,60 @@
 
 <div class="form-container">
     <div class="form-content">
-    <form class="" method="post" enctype="multipart/form-data">
-        <div class="form-item">
-            <label class="" for="username">
-                Wine Label
-            </label>
-            <input class=""
-                   id="wine-label" name="wine-label" type="file">
-        </div>
+        <form id="form-actual" method="post" enctype="multipart/form-data">
+            <div class="form-item">
+                <label class="" for="wine-label">
+                    Wine Label
+                </label>
+                <input class=""
+                       id="wine" name="wine" type="file" required>
+            </div>
 
-        <div class="form-item">
-            <label class="" for="">
-                Review Site
-            </label>
-            <input class=""
-                   name="review-site" id="review-site" type="file">
-        </div>
+            <div class="form-item">
+                <label class="" for="review-site">
+                    Review Site
+                </label>
+                <input name="review" id="review" type="file" required>
+            </div>
 
-        <div class="form-item">
-            <label class="" for="username">
-                Points
-            </label>
-            <br>
-            <input class=""
-                   id="points" name="points" type="text">
-        </div>
-        <div class="form-item">
-            <label class="" for="password">
-                Description
-            </label>
-            <br>
-            <textarea class=""
-                   id="description" name="description" type="text">
-            </textarea>
-        </div>
+            <div class="form-item">
+                <label class="" for="username">
+                    Points
+                </label>
+                <br>
+                <input class=""
+                       id="points" name="points" type="text" required>
+            </div>
+            <div class="form-item">
+                <label for="description">
+                    Description
+                </label>
+                <br>
+                <textarea id="description" name="description" type="text" required> </textarea>
+            </div>
 
-        <div class="form-item">
-            <input class=""
-                   type="submit"
-                   value="Submit">
-        </div>
-    </form>
-</div>
+            <div class="form-item">
+                <input class=""
+                       type="submit"
+                       value="Submit">
+            </div>
+        </form>
+        <br>
+        <div id="errors"></div>  <!-- Errors will live in here, as we'll specify later in the plugin setup -->
+      </div>
+
+
+    <script type='text/javascript'>
+        $('#form-actual').validate({ // when the submit button is click-- this code is fired by the plugin.
+            errorClass: 'help-inline font-bold my-2 block text-red-500',  // class formatting for the error text.
+            errorLabelContainer: '#errors',  // store the error messages in the div with id `errors`
+            messages: {
+                wine: "Wine Label Required!",  // what message to 'print' if an error is detected with the input with id `wine`
+                points: "Must enter a value for points!",
+                description: "Description Required!",
+                review: "Review Required!"
+            }
+        });
+    </script>
+
+    </div>

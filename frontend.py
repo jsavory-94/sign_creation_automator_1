@@ -21,13 +21,10 @@ def home():
     if request.method == 'POST':
         print(request.files)
         print(request.form)
-        wine_label = request.files['wine-label']
+        wine_label = request.files['wine']
         print(wine_label)
-        review_site = request.files['review-site']
+        review_site = request.files['review']
         print(review_site)
-        if review_site.filename == '':
-            return redirect(url_for('home'))
-
         points = request.form['points']
         print(points)
         description = request.form['description']
@@ -68,9 +65,9 @@ def upload_file(wine_label, review_site):
 @app.route('/label.pdf', methods=['GET', 'POST'])
 def render_label_as_pdf():
     if request.method == 'POST':
-        wine_label = request.form['wine-label']
+        wine_label = request.form['wine']
 
-        review_site = request.form['review-site']
+        review_site = request.form['review']
 
         points = request.form['points']
         points_length = len(points)
