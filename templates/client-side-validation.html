@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="">
+​
+<head>
+  <meta charset="utf-8">
+  <title>Example Client-Side Validation</title>
+​
+  <!-- jQuery and Validation Plugin -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+​
+  <!-- Tailwind and Font -->
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css">
+</head>
+​
+<body class="bg-gray-900">
+<div class="w-full max-w-xs mx-auto my-8">
+  <h1 class="text-xl text-center font-bold mb-6 text-white">Example Client-Side Validation</h1>
+​
+  <!-- Define Basic Form -->
+  <form id="wine-form" class="bg-white rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+​
+      <!-- Wine File Field -->
+      <div class="control-group">
+        <label class="block text-gray-700 text-sm font-bold mb-2 control-label" for="wine">
+          Wine Label
+        </label>
+        <div class="controls">
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="file" id="wine" name="wine" required>
+        </div>
+​
+        <!-- Points Input Field -->
+        <label class="block text-gray-700 text-sm font-bold mb-2 control-label" for="points">
+          Points
+        </label>
+        <div class="controls">
+          <textarea
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline  h-64"
+            type="number" id="points" name="points" required>
+        </div>
+​
+        <div id="errors"></div>  <!-- Errors will live in here, as we'll specify later in the plugin setup -->
+      </div>
+​
+    </div>
+    <div class="flex items-center justify-between">
+      <input type="submit"
+             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    </div>
+  </form>
+
+</div>
+​
+<!-- Plugin Setup -->
+<script type='text/javascript'>
+  $('#wine-form').validate({ // when the submit button is click-- this code is fired by the plugin.
+    errorClass: 'help-inline font-bold my-2 block text-red-500',  // class formatting for the error text.
+    errorLabelContainer: '#errors',  // store the error messages in the div with id `errors`
+    messages: {
+      wine: "Wine Label Required!",  // what message to 'print' if an error is detected with the input with id `wine`
+      points: "Must enter a value for points!"
+    }
+  });
+</script>
+​
+</body>
+​
+</html>
